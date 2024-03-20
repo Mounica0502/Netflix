@@ -38,8 +38,7 @@ pipeline{
                 sh "npm install"
             }
         }
-    }
-    post {
+        post {
      always {
         emailext attachLog: true,
             subject: "'${currentBuild.result}'",
@@ -49,8 +48,8 @@ pipeline{
             to: 'mounica.netha5@gmail.com',
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
-    }
-    stage('OWASP FS SCAN') {
+     }
+     stage('OWASP FS SCAN') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'dp-check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
@@ -61,4 +60,5 @@ pipeline{
                 sh "trivy fs . > trivyfs.txt"
             }
         }
+    }
 }
