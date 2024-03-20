@@ -78,7 +78,7 @@
 - [video.js](https://videojs.com)
 - [react-slick](https://react-slick.neostack.com/)
 
-## Install with Docker
+##### Install with Docker
 
 ```sh
 docker build --build-arg TMDB_V3_API_KEY=your_api_key_here -t netflix-clone .
