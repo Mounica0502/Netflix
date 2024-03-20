@@ -11,11 +11,6 @@ pipeline{
                 cleanWs()
             }
         }
-        stage('Checkout from Git'){
-            steps{
-                git branch: 'main', url: 'git@github.com:Mounica0502/Netflix.git'
-            }
-        }
     }
 }
 
