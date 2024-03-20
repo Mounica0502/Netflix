@@ -48,7 +48,7 @@ pipeline{
                 to: 'mounica.netha5@gmail.com',
                 attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
                     }
-        }
+            }
      stage('OWASP FS SCAN') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'dp-check'
