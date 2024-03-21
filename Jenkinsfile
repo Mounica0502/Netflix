@@ -60,11 +60,17 @@ pipeline{
                 }
             }
         }
+        stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name netflix -p 8081:80 mounica52/netflix:latest'
+            }
+        }
         stage("TRIVY"){
             steps{
                 sh "trivy image mounica52/netflix:latest > trivyimage.txt"
             }
         }
+        
      }
     post{
                 always {
